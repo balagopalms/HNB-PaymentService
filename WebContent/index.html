@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<script src="bootstrapStyle/js/jquery-1.11.1.js"></script>
+	<LINK rel="stylesheet" href="bootstrapStyle/css/bootstrap.min.css" type="text/css">
+	<script src="bootstrapStyle/js/bootstrap.js"></script>
+	<title>Create Store Stock</title>
+	
+	<script type="text/javascript">
+	
+	function init() {
+		$("#bulkUploadRow").hide();
+	}
+	
+	$(document).ready(function(){
+		
+		// Invoke when type radio button is changed
+		$('input:radio[name="type"]').change(function(){	
+
+			if($(this).val() == 'M'){														
+				$("#manualRow").show();
+				$("#bulkUploadRow").hide();
+			}
+			if($(this).val() == 'BU'){														
+				$("#manualRow").hide();
+				$("#bulkUploadRow").show();
+			}
+		});				 
+	});
+	</script>
+	
+</head>
+<body onload="init()">
+	<div style="width: 700px;border: 1px ridge;margin-left: 350px;margin-top: 100px" id="mainDiv">
+		<table style="width: 100%" class="table">
+			<tr>
+				<td colspan="2" align="center">Push store stock</td>	
+			</tr>
+			<tr>
+				<td align="center">Environment</td>
+				<td align="center"><select name="envs"><option value="UAT">UAT</option></select>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="radio" name="type" value="M" checked="checked"/> Manual
+				<td align="center">
+					<input type="radio" name="type" value="BU"/> Bulk Upload
+				</td>
+			</tr>
+			<tr id="manualRow">
+				<td align="center">ProductId : <input type="text"></td>
+				<td align="center">Stock : <input type="text"></td>
+			</tr>
+			<tr id="bulkUploadRow">
+				<td align="center">ProductId - BU : <input type="text"></td>
+				<td align="center">Stock - SS : <input type="text"></td>
+			</tr>
+		</table>
+</body>
+</html>
